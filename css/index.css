@@ -1,0 +1,596 @@
+/* Variables */
+:root {
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+/* Base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1000;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+/* Hero */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    gap: 3rem;
+}
+
+.hero-text > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out forwards;
+}
+
+.hero-text h1 { animation-delay: 0.1s; }
+.hero-description { animation-delay: 0.3s; }
+.hero-text .btn { animation-delay: 0.5s; }
+
+
+.hero-description {
+    max-width: 500px;
+    font-size: 1.1rem;
+    border-left: 3px solid #183447;
+    padding-left: 20px;
+    margin: 2rem 0;
+}
+
+/* Image */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-pic {
+    width: 320px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0 #183447;
+}
+
+/* Bouton */
+.btn {
+    display: inline-block;
+    background-color:#000000;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-center {
+    margin-top: 5px !important; /* On force une marge petite */
+}
+.btn2 {
+    display: inline-block;
+    background-color:#10364e;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn3 {
+    display: inline-block;
+    background-color:#547d96;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-wrapper {
+    position: relative;
+    min-height: 80vh;
+}
+
+/* Pages cachées */
+.page-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Page active */
+.page-content.active {
+    position: relative; /* 👈 revient dans le flux */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* Ajustement des colonnes pour mobile */
+@media (max-width: 768px) {
+    .parcours-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem; /* Plus petit pour mobile */
+    }
+
+    .screenshot-item {
+        flex-direction: column; /* Texte sous l'image sur mobile */
+        align-items: center;
+    }
+    
+    .screenshot-item span {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+.text-center{
+    font-size: 3rem;
+    text-align: center;
+    color: #000000;
+}
+
+.cards-container {
+    margin-top: 30px; /* Réduit pour éviter de trop scroller */
+    display: grid;
+    /* Force exactement 3 colonnes de taille égale */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    max-width: 1200px; /* Aligné sur la navbar pour plus de propreté */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+/* On ajuste pour les tablettes (2 colonnes) */
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* On ajuste pour les mobiles (1 colonne) */
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+.card {
+    background: white;
+    padding: 0.2rem 1.8rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid #e5e7eb;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    padding: 1px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Couleurs pour différencier les étapes */
+.card.highlight { border-top-color: #133348; }
+.card.highlight-alt { border-top-color: #133348; }
+
+
+.parcours-header {
+
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.btn-small {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    background-color: var(--dark);
+}
+
+/* Organisation en deux colonnes */
+.parcours-columns {
+    display: flex;
+    gap: 40px; /* Espace entre les deux colonnes */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 7px;
+}
+
+.column-pro, .column-uni {
+    flex: 1; /* Les deux colonnes prennent la même largeur */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espace entre les cartes d'une même colonne */
+    max-width: 500px;
+}
+
+.column-title {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Responsive : On repasse sur une seule colonne sur mobile */
+@media (max-width: 768px) {
+    .parcours-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.btn-detail-comp{
+    display: inline-block;
+    position: relative;
+    background-color:#000000;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style des boutons de filtrage */
+.filter-buttons { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+.filter-btn { padding: 8px 10px; border-radius: 5px; border: 1px solid var(--primary); cursor: pointer; }
+
+/* Masquer les projets par défaut pour le filtre */
+.project-item { display: none; background: white; padding: 15px; border-radius: 8px; margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.project-item.active { display: block; animation: fadeIn 0.5s; }
+
+/* Fond de la modal (couvre tout l'écran) */
+
+
+.app-screenshots {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    gap: 15px; /* Espace entre les images */
+    margin-top: 20px;
+}
+
+.screenshot-item img {
+    width: 100;
+    height: 300px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.screenshot-item {
+    display: flex;         /* Aligne l'image et le texte côte à côte */
+    align-items: flex-end; /* Aligne le bas du texte avec le bas de l'image */
+    gap: 10px;             /* Espace entre l'image et la légende */
+}
+
+.screenshot-item span {
+    font-size: 0.8rem;
+    color: #888;           /* Gris plus clair comme sur ta capture */
+    font-style: normal;    /* Pas d'italique selon ton image */
+    line-height: 1.2;
+    max-width: 110px;      /* Force le texte à passer à la ligne s'il est long */
+    margin-bottom: 150px;    /* Petit décalage pour ne pas coller au bord bas */
+    text-align: left;
+}
+
+
+#btn-retour-parcours {
+    position: absolute;
+    left: 20px; /* Aligne le bouton tout à gauche */
+    top: 20px;
+    padding: 0.5rem 1rem;
+}
+
+.page-content#page-competences .card {
+    cursor: pointer; /* Curseur main pour indiquer que c'est cliquable */
+    transition: all 0.3s ease;
+}
+
+.page-content#page-competences .card:hover {
+    background-color: #bcbfc4; /* Bleu très léger au survol */
+    border-top-color:  #3f4041; /* Change la couleur de la bordure haute */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#btn-retour-comp {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+/* Classe pour garder la couleur sur la compétence sélectionnée */
+.card.selected-skill {
+    background-color: #e0f2fe;
+    border: 2px solid var(--primary);
+    transform: scale(1.02);
+}
+
+.filter-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #f1f5f9; /* Gris clair par défaut */
+    color: #1e293b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* La couleur bleue quand la compétence est sélectionnée */
+.filter-btn.active {
+    background: #0f1e3f; /* Bleu vif comme sur tes images */
+    color: white;
+    box-shadow: 0 4px 10px rgba(37, 115, 218, 0.3);
+}
+
+.filter-btn:hover:not(.active) {
+    background: #e2e8f0;
+}
+.project-img {
+    width: 100%;       /* L'image prend toute la largeur de la carte */
+    height: 160px;     /* Tu peux réduire cette valeur (ex: 120px) pour réduire la taille */
+    object-fit: cover; /* Coupe l'image proprement pour remplir le cadre sans l'écraser */
+    border-radius: 8px; /* Arrondi les angles pour le style */
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+/* Styles pour la Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #f8f9fa;
+    margin: 5% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.close-details {
+    position: absolute;
+    right: 25px; top: 20px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.blue-title { color: #2563eb; margin-bottom: 15px; }
+
+.separator {
+    border: 0;
+    height: 3px;
+    background: #212734;
+    width: 100px;
+    margin: 10px auto 30px;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.modal-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Style des listes avec icônes */
+.tech-list, .features-list { list-style: none; padding: 0; }
+.tech-list li::before { content: "🔹 "; }
+.features-list li::before { content: "• "; color: #2563eb; font-weight: bold; }
+.tech-list li, .features-list li { margin-bottom: 10px; font-size: 1.1rem; }
+
+.languages-bar {
+    background-color: white;
+    padding: 20px 0;
+    border-top: 1px solid #e2e8f0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    text-align: center; /* Centre le texte d'introduction */
+}
+
+.languages-intro-text {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 25px; /* Espace sous le texte */
+    font-weight: 600;
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 50px; /* Espace entre chaque langage */
+    animation: scroll 30s linear infinite; /* Vitesse du défilement */
+    white-space: nowrap;
+    align-items: center; /* Alignement vertical des logos et texte */
+}
+
+.language-item {
+    display: flex; /* Permet d'aligner logo et texte sur la même ligne */
+    align-items: center; /* Centre verticalement le logo avec le texte */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lang-logo {
+    height: 30px; /* Taille des logos, ajuste si nécessaire */
+    width: auto;
+    margin-right: 10px; /* Espace entre le logo et le texte */
+    vertical-align: middle; /* Alignement vertical */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+.more-info-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+    background: #f1f5f9;
+    border-radius: 15px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.btn-small-blue {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #133348;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.hero-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out forwards;
+}
+
+@keyframes heroFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
