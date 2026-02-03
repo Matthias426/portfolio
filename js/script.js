@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Conception du célèbre jeu Bomberman sous Godot Engine. Gestion des collisions et IA des ennemis.",
       image: "css/images/bomberman.png",
       tech: ["Godot Engine 4", "GDScript", "Git"],
-      features: ["Système de bonus", "Murs destructibles", "IA Pathfinding"],
+      features: ["Système de bonus", "Murs destructibles"],
     },
     tower_defense: {
       title: "Planet Defense - Tower Defense Java",
