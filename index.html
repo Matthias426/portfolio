@@ -9,19 +9,19 @@
 <body>
 
     <header class="navbar">
-        <nav class="container-nav">
-            <h3 class="nav-logo">Matthias P.</h3>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="#" id="nav-parcours">Parcours</a></li>
-                <li><a href="#" id="nav-competences">Compétences</a></li>
-                <li><a href="#" id="nav-projets">Projets</a></li>
-                <li><a href="#" id="nav-contact">Contact</a></li>
-                <li><a href="cv/CV_Matthias.pdf" class="btn-cv" target="_blank">CV</a></li>
-
-                </ul>
-        </nav>
-    </header>
+    <nav class="container-nav">
+        <h3 class="nav-logo">Matthias P.</h3>
+        <ul class="nav-links">
+            <li><a href="#" id="nav-home">Accueil</a></li>
+            <li><a href="#" id="nav-parcours">Parcours</a></li>
+            <li><a href="#" id="nav-competences">Compétences</a></li>
+            <li><a href="#" id="nav-projets">Projets</a></li>
+            <li><a href="#" id="nav-experience">Expériences</a></li> 
+            <li><a href="#" id="nav-contact">Contact</a></li>
+            <li><a href="cv/CV_Matthias.pdf" class="btn-cv" target="_blank">CV</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main class="main-wrapper">
         
@@ -182,7 +182,7 @@
                     <div class="card-badge">Optimiser</div>
                     <div class="card-badge">Gérer</div>
                     <h3>Application Web Symfony</h3>
-                    <p>Gestion d'inventaire réalisée en équipe.</p>
+                    <p>Gestion d'étudiant.</p>
                     <button class="btn-detail-comp">Détails</button>
                 </div>
 
@@ -308,6 +308,55 @@
 
    
 </section>
+<div id="page-experience" class="page-content">
+    <h1 class="text-center">Expériences Professionnelles</h1>
+    <div class="separator"></div>
+
+    <div class="cards-container">
+        
+        <div class="card highlight-alt" onclick="openExpModal('alternance')">
+            <div class="card-badge" style="background: #4a5771; color: white;">Alternance</div>
+            <h3>Développeur d'application Low Code</h3>
+            <p><strong>Groupe Cargo</strong> | 1 Ans</p>
+            <p>Refonte d'interfaces et optimisation de bases de données.</p>
+            <span class="btn-detail-comp">Voir les détails</span>
+        </div>
+
+        <div class="card highlight" onclick="openExpModal('stage')">
+            <div class="card-badge" style="background: #0f1e3f; color: white;">Stage</div>
+            <h3>Développeur d'application</h3>
+            <p><strong>Eiffage Energie Systèmes</strong> | 9 Semaines</p>
+            <p>Conception d'outils de gestion interne.</p>
+            <span class="btn-detail-comp">Voir les réalisations</span>
+        </div>
+
+    </div>
+</div><div id="modal-experience" class="modal">
+    <div class="modal-content">
+        <span class="close-details" onclick="closeExpModal()">&times;</span>
+        <h2 id="exp-title" class="blue-title text-center">Titre de l'expérience</h2>
+        <div class="separator"></div>
+
+        <div class="modal-grid">
+            <div class="modal-text">
+                <h3 class="blue-title">Missions & Résultats</h3>
+                <ul id="exp-features" class="features-list"></ul>
+
+                <h3 class="blue-title" style="margin-top: 20px;">Technologies utilisées</h3>
+                <div id="exp-tech" class="tech-container"></div>
+            </div>
+            
+            <div id="exp-visuals-container" class="experience-visuals">
+                <div class="photo-grid">
+                    <img id="exp-img1" src="" alt="Capture 1">
+                    <img id="exp-img2" src="" alt="Capture 2">
+                    <img id="exp-img3" src="" alt="Capture 3">
+                    <img id="exp-img4" src="" alt="Capture 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     </main>
 
