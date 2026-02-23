@@ -55,7 +55,7 @@ const expData = {
       "Refonte d'interfaces utilisateurs pour une meilleure ergonomie",
       "Optimisation de bases de données relationnelles",
       "Développement de solutions agiles en environnement DSI",
-      "Collaboration sur des projets d'envergure (1 an)",
+      "Collaboration sur des projets d'envergure",
     ],
     tech: ["Power Apps", "Dataverse", "Power Automate", "Business Central"],
     images: [], // Pas d'images pour l'alternance
